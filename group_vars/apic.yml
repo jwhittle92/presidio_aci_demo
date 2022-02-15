@@ -32,55 +32,6 @@ bd_subnet:
 - { bd: "App_BD", gw: "10.11.1.1" }
 - { bd: "DB_BD", gw: "10.12.1.1" }
 
-#20-40, Leaf 101-102
-epg_ports:
-
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/20", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/21", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/22", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/23", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/24", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/25", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/26", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/27", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/28", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/29", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/30", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/31", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/32", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/33", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/34", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/35", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/36", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/37", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/38", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/39", leaf: "101" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/40", leaf: "101" }
-
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/20", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/21", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/22", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/23", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/24", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/25", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/26", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/27", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/28", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/29", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/30", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/31", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/32", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/33", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/34", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/35", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/36", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/37", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/38", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/39", leaf: "102" }
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/40", leaf: "102" }
-
-
-
 
 # Fabric config
 
@@ -112,46 +63,16 @@ leaf_int_profile:
 
 int_profile:
 
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-20", polgro: "auto_access", interface: "20", description: "Web Server" }
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-21", polgro: "auto_access", interface: "21", description: "App Server" }
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-22", polgro: "auto_access", interface: "22", description: "DB Server" }
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-23", polgro: "auto_access", interface: "23", description: "Web Server" }
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-24", polgro: "auto_access", interface: "24", description: "App Server" }
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-25", polgro: "auto_access", interface: "25", description: "DB Server" }
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-26", polgro: "auto_access", interface: "26", description: "Web Server" }
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-27", polgro: "auto_access", interface: "27", description: "App Server" }
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-28", polgro: "auto_access", interface: "28", description: "DB Server" }
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-29", polgro: "auto_access", interface: "29", description: "Web Server" }
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-30", polgro: "auto_access", interface: "30", description: "Web Server" }
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-31", polgro: "auto_access", interface: "31", description: "App Server" }
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-32", polgro: "auto_access", interface: "32", description: "DB Server" }
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-33", polgro: "auto_access", interface: "33", description: "Web Server" }
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-34", polgro: "auto_access", interface: "34", description: "App Server" }
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-35", polgro: "auto_access", interface: "35", description: "DB Server" }
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-36", polgro: "auto_access", interface: "36", description: "Web Server" }
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-37", polgro: "auto_access", interface: "37", description: "App Server" }
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-38", polgro: "auto_access", interface: "38", description: "DB Server" }
-- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-39", polgro: "auto_access", interface: "39", description: "Web Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-40", polgro: "auto_access", interface: "40", description: "Web Server" }
+- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-10", polgro: "auto_access", interface: "10", description: "Web Server" }
+- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-11", polgro: "auto_access", interface: "11", description: "App Server" }
+- { int_type: "switch_port", profile: "Presidio-L101", selector: "1-12", polgro: "auto_access", interface: "12", description: "DB Server" }
 
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-20", polgro: "auto_access", interface: "20", description: "Web Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-21", polgro: "auto_access", interface: "21", description: "App Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-22", polgro: "auto_access", interface: "22", description: "DB Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-23", polgro: "auto_access", interface: "23", description: "Web Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-24", polgro: "auto_access", interface: "24", description: "App Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-25", polgro: "auto_access", interface: "25", description: "DB Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-26", polgro: "auto_access", interface: "26", description: "Web Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-27", polgro: "auto_access", interface: "27", description: "App Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-28", polgro: "auto_access", interface: "28", description: "DB Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-29", polgro: "auto_access", interface: "29", description: "Web Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-30", polgro: "auto_access", interface: "30", description: "Web Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-31", polgro: "auto_access", interface: "31", description: "App Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-32", polgro: "auto_access", interface: "32", description: "DB Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-33", polgro: "auto_access", interface: "33", description: "Web Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-34", polgro: "auto_access", interface: "34", description: "App Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-35", polgro: "auto_access", interface: "35", description: "DB Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-36", polgro: "auto_access", interface: "36", description: "Web Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-37", polgro: "auto_access", interface: "37", description: "App Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-38", polgro: "auto_access", interface: "38", description: "DB Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-39", polgro: "auto_access", interface: "39", description: "Web Server" }
-- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-40", polgro: "auto_access", interface: "40", description: "Web Server" }
+- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-10", polgro: "auto_access", interface: "10", description: "Web Server" }
+- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-11", polgro: "auto_access", interface: "11", description: "App Server" }
+- { int_type: "switch_port", profile: "Presidio-L102", selector: "1-12", polgro: "auto_access", interface: "12", description: "DB Server" }
+
+epg_ports:
+
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/10", leaf: "101" }
+- { epg: "App", vlan: "11", int_mode: "native", int_type: "switch_port", interface: "1/11", leaf: "101" }
+- { epg: "DB", vlan: "12", int_mode: "native", int_type: "switch_port", interface: "1/12", leaf: "101" }
