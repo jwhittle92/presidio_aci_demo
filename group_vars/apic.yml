@@ -73,6 +73,10 @@ int_profile:
 
 epg_ports:
 
-- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/20", leaf: "101" }
-- { epg: "App", vlan: "11", int_mode: "native", int_type: "switch_port", interface: "1/21", leaf: "101" }
-- { epg: "DB", vlan: "12", int_mode: "native", int_type: "switch_port", interface: "1/22", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/10", leaf: "101" }
+- { epg: "DB", vlan: "11", int_mode: "native", int_type: "switch_port", interface: "1/11", leaf: "101" }
+- { epg: "App", vlan: "12", int_mode: "native", int_type: "switch_port", interface: "1/12", leaf: "101" }
+
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/10", leaf: "102" }
+- { epg: "DB", vlan: "11", int_mode: "native", int_type: "switch_port", interface: "1/11", leaf: "102" }
+- { epg: "App", vlan: "12", int_mode: "native", int_type: "switch_port", interface: "1/12", leaf: "102" }
