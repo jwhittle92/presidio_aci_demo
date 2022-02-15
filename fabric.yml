@@ -1,0 +1,102 @@
+---
+- name: Configure ACI Tenant Policies
+  hosts: apic
+  connection: local
+  gather_facts: False
+  vars:
+    creds: &login
+      host: "{{ inventory_hostname }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      validate_certs: no
+      state: "{{ state }}"
+
+  tasks:
+
+  - name: Add a new VLAN pool
+    cisco.aci.aci_vlan_pool:
+      <<: *login
+      pool: "{{ vlan_pool }}"
+      pool_allocation_mode: static
+
+  - name: Add a new VLAN encap block
+    cisco.aci.aci_vlan_pool_encap_block:
+      <<: *login
+      pool: "{{ vlan_pool }}"
+      pool_allocation_mode: static
+      block_name: "{{ vlan_pool }}"
+      block_start: "{{ vlan_block_first }}"
+      block_end: "{{ vlan_block_last }}"
+  
+  - name: Add a new physical domain
+    cisco.aci.aci_domain:
+      <<: *login
+      domain: "{{ domain }}"
+      domain_type: phys
+
+  - name: Bind a physical domain to VLAN pool
+    cisco.aci.aci_domain_to_vlan_pool:
+      <<: *login
+      domain: "{{ domain }}"
+      domain_type: phys
+      pool: "{{ vlan_pool }}"
+      pool_allocation_mode: static
+
+  - name: add AEP
+    cisco.aci.aci_aep:
+      <<: *login
+      aep: "{{ aep }}"
+
+  - name: Add AEP to domain binding
+    cisco.aci.aci_aep_to_domain:
+      <<: *login
+      aep: "{{ aep }}"
+      domain: "{{ domain }}"
+      domain_type: "phys"
+
+  - name: Create CDP Interface Policy to enable CDP
+    cisco.aci.aci_interface_policy_cdp:
+      <<: *login
+      name: CDP_On
+      admin_state: true
+
+  - name: Create a Leaf Access Port Policy Group
+    cisco.aci.aci_interface_policy_leaf_policy_group:
+      <<: *login
+      lag_type: leaf
+      policy_group: "{{ access_policy_name }}"
+      aep: "{{ aep }}"
+      cdp_policy: CDP_On
+
+  - name: Create interface profile
+    cisco.aci.aci_interface_policy_leaf_profile:
+      <<: *login
+      interface_profile: "{{ item }}"
+    loop:
+      "{{ int_profile_name }}"
+
+  - name: Create leaf profile
+    cisco.aci.aci_switch_policy_leaf_profile:
+      <<: *login
+      leaf_profile: "{{ item }}"
+    loop:
+      "{{ leaf_profile_name }}"
+
+  - name: adding a switch policy leaf profile selector associated Node Block range (w/ policy group)
+    cisco.aci.aci_switch_leaf_selector:
+      <<: *login
+      leaf_profile: "{{ item.leaf }}"
+      leaf: "{{ item.leaf_id }}"
+      leaf_node_blk: "{{ item.leaf_id }}"
+      from: "{{ item.leaf_id }}"
+      to: "{{ item.leaf_id }}"
+    loop:
+      "{{ leaf_profile }}"
+
+  - name: Associating an interface selector profile to a leaf profile
+    cisco.aci.aci_interface_selector_to_switch_policy_leaf_profile:
+      <<: *login
+      leaf_profile: "{{ item.leaf }}"
+      interface_selector: "{{ item.int_profile }}"
+    loop:
+      "{{ leaf_int_profile }}"

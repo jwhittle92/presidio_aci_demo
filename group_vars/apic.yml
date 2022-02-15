@@ -1,0 +1,157 @@
+state: present
+
+# Tenant Config
+tenant: CNMC
+
+pref_group: yes
+pod: 1
+
+app_profile: Web_Application
+
+vrf: Production
+
+bridge_domains:
+- { bd: "Web_BD", vrf: "Production" }
+- { bd: "App_BD", vrf: "Production" }
+- { bd: "DB_BD", vrf: "Production" }
+
+
+epgs:
+- { epg: "Web", bd: "Web_BD" }
+- { epg: "App", bd: "App_BD"}
+- { epg: "DB", bd: "DB_BD" }
+
+
+epgs_domains:
+- { epg: "Web", domain: "CNMC_PHYS" }
+- { epg: "App", domain: "CNMC_PHYS" }
+- { epg: "DB", domain: "CNMC_PHYS" }
+
+bd_subnet:
+- { bd: "Web_BD", gw: "10.10.1.1" }
+- { bd: "App_BD", gw: "10.11.1.1" }
+- { bd: "DB_BD", gw: "10.12.1.1" }
+
+#20-40, Leaf 101-102
+epg_ports:
+
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/20", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/21", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/22", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/23", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/24", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/25", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/26", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/27", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/28", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/29", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/30", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/31", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/32", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/33", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/34", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/35", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/36", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/37", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/38", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/39", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/40", leaf: "101" }
+
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/20", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/21", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/22", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/23", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/24", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/25", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/26", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/27", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/28", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/29", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/30", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/31", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/32", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/33", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/34", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/35", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/36", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/37", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/38", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/39", leaf: "102" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/40", leaf: "102" }
+
+
+
+
+# Fabric config
+
+vlan_pool: Server_VLANs
+
+vlan_block_first: 10
+vlan_block_last: 50
+
+domain: CNMC_PHYS
+aep: CNMC_AEP
+access_policy_name: auto_access
+
+int_profile_name:
+- CNMC-L101
+- CNMC-L102
+
+leaf_profile_name:
+- CNMC-L101
+- CNMC-L102
+
+leaf_profile:
+- { leaf: "CNMC-L101", leaf_id: "101" }
+- { leaf: "CNMC-L102", leaf_id: "102" }
+
+leaf_int_profile:
+- { leaf: "CNMC-L101", int_profile: "CNMC-L101"}
+- { leaf: "CNMC-L102", int_profile: "CNMC-L102"}
+
+
+int_profile:
+
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-20", polgro: "auto_access", interface: "20", description: "Web Server" }
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-21", polgro: "auto_access", interface: "21", description: "App Server" }
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-22", polgro: "auto_access", interface: "22", description: "DB Server" }
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-23", polgro: "auto_access", interface: "23", description: "Web Server" }
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-24", polgro: "auto_access", interface: "24", description: "App Server" }
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-25", polgro: "auto_access", interface: "25", description: "DB Server" }
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-26", polgro: "auto_access", interface: "26", description: "Web Server" }
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-27", polgro: "auto_access", interface: "27", description: "App Server" }
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-28", polgro: "auto_access", interface: "28", description: "DB Server" }
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-29", polgro: "auto_access", interface: "29", description: "Web Server" }
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-30", polgro: "auto_access", interface: "30", description: "Web Server" }
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-31", polgro: "auto_access", interface: "31", description: "App Server" }
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-32", polgro: "auto_access", interface: "32", description: "DB Server" }
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-33", polgro: "auto_access", interface: "33", description: "Web Server" }
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-34", polgro: "auto_access", interface: "34", description: "App Server" }
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-35", polgro: "auto_access", interface: "35", description: "DB Server" }
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-36", polgro: "auto_access", interface: "36", description: "Web Server" }
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-37", polgro: "auto_access", interface: "37", description: "App Server" }
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-38", polgro: "auto_access", interface: "38", description: "DB Server" }
+- { int_type: "switch_port", profile: "CNMC-L101", selector: "1-39", polgro: "auto_access", interface: "39", description: "Web Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-40", polgro: "auto_access", interface: "40", description: "Web Server" }
+
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-20", polgro: "auto_access", interface: "20", description: "Web Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-21", polgro: "auto_access", interface: "21", description: "App Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-22", polgro: "auto_access", interface: "22", description: "DB Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-23", polgro: "auto_access", interface: "23", description: "Web Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-24", polgro: "auto_access", interface: "24", description: "App Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-25", polgro: "auto_access", interface: "25", description: "DB Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-26", polgro: "auto_access", interface: "26", description: "Web Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-27", polgro: "auto_access", interface: "27", description: "App Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-28", polgro: "auto_access", interface: "28", description: "DB Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-29", polgro: "auto_access", interface: "29", description: "Web Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-30", polgro: "auto_access", interface: "30", description: "Web Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-31", polgro: "auto_access", interface: "31", description: "App Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-32", polgro: "auto_access", interface: "32", description: "DB Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-33", polgro: "auto_access", interface: "33", description: "Web Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-34", polgro: "auto_access", interface: "34", description: "App Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-35", polgro: "auto_access", interface: "35", description: "DB Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-36", polgro: "auto_access", interface: "36", description: "Web Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-37", polgro: "auto_access", interface: "37", description: "App Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-38", polgro: "auto_access", interface: "38", description: "DB Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-39", polgro: "auto_access", interface: "39", description: "Web Server" }
+- { int_type: "switch_port", profile: "CNMC-L102", selector: "1-40", polgro: "auto_access", interface: "40", description: "Web Server" }

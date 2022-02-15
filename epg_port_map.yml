@@ -1,0 +1,52 @@
+
+---
+- name: Map EPGs to ports
+  hosts: apic
+  connection: local
+  gather_facts: False
+  vars:
+    creds: &login
+      host: "{{ inventory_hostname }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      validate_certs: no
+
+
+  tasks:
+
+  - name: Associate an Interface Access Port Selector to an Interface Profile with a Policy Group
+    cisco.aci.aci_access_port_to_interface_policy_leaf_profile:
+      <<: *login
+      interface_profile: "{{ item.profile }}"
+      access_port_selector: "{{ item.selector }}"
+      policy_group: "{{ item.polgro }}"
+      interface_type: "{{ item.int_type }}"
+    loop:
+      "{{ int_profile }}"
+
+  - name: Associate port block to leaf interface profile
+    cisco.aci.aci_access_port_block_to_access_port:
+      <<: *login
+      interface_profile: "{{ item.profile }}"
+      access_port_selector: "{{ item.selector }}"
+      port_blk: "{{ item.interface }}"
+      from_port: "{{ item.interface }}"
+      to_port: "{{ item.interface }}"
+    loop:
+      "{{ int_profile }}"
+
+  - name: Deploy Static Path binding for EPG
+    cisco.aci.aci_static_binding_to_epg:
+      <<: *login
+      tenant: "{{ tenant }}"
+      ap: "{{ app_profile }}"
+      epg: "{{ item.epg }}"
+      encap_id: "{{ item.vlan }}"
+      deploy_immediacy: lazy
+      interface_mode: "{{ item.int_mode }}"
+      interface_type: "{{ item.int_type }}"
+      pod_id: "{{ pod }}"
+      interface: "{{ item.interface }}"
+      leafs: "{{ item.leaf }}"
+    loop:
+      "{{ epg_ports }}"
