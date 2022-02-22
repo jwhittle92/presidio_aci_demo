@@ -13,7 +13,12 @@
 
 
   tasks:
-
+  
+  - name: Create Snapshot
+    cisco.aci.aci_config_rollback:
+      <<: *login
+      export_policy: demo_backup
+      
   - name: Associate an Interface Access Port Selector to an Interface Profile with a Policy Group
     cisco.aci.aci_access_port_to_interface_policy_leaf_profile:
       <<: *login
