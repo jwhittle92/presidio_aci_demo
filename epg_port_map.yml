@@ -15,7 +15,7 @@
   tasks:
   
   - name: Create Snapshot
-    cisco.aci.aci_config_rollback:
+    cisco.aci.aci_config_snapshot:
       <<: *login
       export_policy: demo_backup
       
