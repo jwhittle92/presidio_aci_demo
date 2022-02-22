@@ -17,7 +17,7 @@
   - name: Create Snapshot
     cisco.aci.aci_config_snapshot:
       <<: *login
-      export_policy: "{{ ansible_date_time.iso8601_micro }}"
+      export_policy: epg_port_map
       
   - name: Associate an Interface Access Port Selector to an Interface Profile with a Policy Group
     cisco.aci.aci_access_port_to_interface_policy_leaf_profile:
