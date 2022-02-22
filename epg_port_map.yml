@@ -3,7 +3,7 @@
 - name: Map EPGs to ports
   hosts: apic
   connection: local
-  gather_facts: False
+  gather_facts: True
   vars:
     creds: &login
       host: "{{ inventory_hostname }}"
