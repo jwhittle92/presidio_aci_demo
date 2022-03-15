@@ -72,6 +72,7 @@ int_profile:
 
 epg_ports:
 - { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/20", leaf: "101" }
+- { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/20", leaf: "101" }
 - { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/21", leaf: "101" }
 - { epg: "Web", vlan: "10", int_mode: "native", int_type: "switch_port", interface: "1/22", leaf: "101" }
 
